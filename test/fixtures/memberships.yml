@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  m_id: 1
+  m_name: MyString
+  price: 1.5
+
+two:
+  m_id: 1
+  m_name: MyString
+  price: 1.5

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @pass_category.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @pass_category.price %>
+</p>
+
+<%= link_to 'Edit', edit_pass_category_path(@pass_category) %> |
+<%= link_to 'Back', pass_categories_path %>

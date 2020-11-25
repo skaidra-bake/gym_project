@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @one_day_pass.date %>
+</p>
+
+<p>
+  <strong>Member:</strong>
+  <%= @one_day_pass.member_id %>
+</p>
+
+<%= link_to 'Edit', edit_one_day_pass_path(@one_day_pass) %> |
+<%= link_to 'Back', one_day_passes_path %>

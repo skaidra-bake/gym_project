@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Merchandises</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @merchandises.each do |merchandise| %>
+      <tr>
+        <td><%= merchandise.name %></td>
+        <td><%= merchandise.price %></td>
+        <td><%= link_to 'Show', merchandise %></td>
+        <td><%= link_to 'Edit', edit_merchandise_path(merchandise) %></td>
+        <td><%= link_to 'Destroy', merchandise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Merchandise', new_merchandise_path %>
