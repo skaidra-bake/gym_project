@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :members
   resources :transactions
   resources :merchandises
   resources :one_day_passes
