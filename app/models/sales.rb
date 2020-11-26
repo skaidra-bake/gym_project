@@ -1,4 +1,4 @@
-class Transaction < ApplicationRecord
+class Sales < ApplicationRecord
     belongs_to :member
 
     # can have many merch items
