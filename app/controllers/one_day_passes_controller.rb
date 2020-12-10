@@ -15,6 +15,7 @@ class OneDayPassesController < ApplicationController
   # GET /one_day_passes/new
   def new
     @one_day_pass = OneDayPass.new
+    @sale = Sale.new
   end
 
   # GET /one_day_passes/1/edit
@@ -24,17 +25,19 @@ class OneDayPassesController < ApplicationController
   # POST /one_day_passes
   # POST /one_day_passes.json
   def create
-    @one_day_pass = OneDayPass.new(one_day_pass_params)
+    @one_day_pass = current_member.one_day_passes.build(one_day_pass_params)
+    @sale = current_member.sales.build(date: Date.today)
 
-    respond_to do |format|
-      if @one_day_pass.save
-        format.html { redirect_to @one_day_pass, notice: 'One day pass was successfully created.' }
-        format.json { render :show, status: :created, location: @one_day_pass }
-      else
-        format.html { render :new }
-        format.json { render json: @one_day_pass.errors, status: :unprocessable_entity }
-      end
+    ActiveRecord::Base.transaction do
+      @one_day_pass.save!
+      @sale.save!
     end
+
+    redirect_to @one_day_pass, notice: 'One day pass was successfully created.' 
+
+  rescue ActiveRecord::RecordInvalid => e
+    pp e
+    return render :new, notice: "Something went wrong" 
   end
 
   # PATCH/PUT /one_day_passes/1
@@ -69,6 +72,7 @@ class OneDayPassesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def one_day_pass_params
-      params.require(:one_day_pass).permit(:date, :member_id)
+      params.require(:one_day_pass).permit(:date, :pass_category_id)
     end
+
 end

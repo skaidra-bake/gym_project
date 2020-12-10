@@ -12,16 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :date %>
+    <%= form.label :date_of_pass %>
     <%= form.date_select :date %>
   </div>
 
   <div class="field">
-    <%= form.label :member_id %>
-    <%= form.number_field :member_id %>
+    <%= form.label :select_pass %>
+    <%= form.collection_select(:pass_category_id, PassCategory.all, :id, :name) %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+
+  <%
+=begin%>
+  how to create a hidden field?
+ <td><%= one_day_pass.hidden_field member_id: @member.id %></td>
+  <td><%= one_day_pass.collection_select(:pass_category_id, PassCategory.all, :id, :name) %></td> 
+<%
+=end%>
+
+
 <% end %>

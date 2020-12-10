@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Date:</strong>
   <%= @one_day_pass.date %>
@@ -8,6 +6,13 @@
 <p>
   <strong>Member:</strong>
   <%= @one_day_pass.member_id %>
+</p>
+
+<p>
+  <strong>Pass Category:</strong>
+  <%= @one_day_pass.pass_category_id %>
+  <%= @one_day_pass.pass_category.name %>
+  <%= @one_day_pass.pass_category.price %>
 </p>
 
 <%= link_to 'Edit', edit_one_day_pass_path(@one_day_pass) %> |

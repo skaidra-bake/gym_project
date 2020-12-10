@@ -1,5 +1,19 @@
 <h1>New One Day Pass</h1>
-
+<% if @sale.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= I18n.t("errors.messages.not_saved",
+                 count: @sale.errors.count,
+                 resource: @sale.class.model_name.human.downcase)
+       %>
+    </h2>
+    <ul>
+      <% @sale.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <%= render 'form', one_day_pass: @one_day_pass %>
 
 <%= link_to 'Back', one_day_passes_path %>

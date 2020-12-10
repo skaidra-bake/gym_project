@@ -1,29 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class='container'>
+  <h1>Pass Categories</h1>
 
-<h1>Pass Categories</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pass_categories.each do |pass_category| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= pass_category.name %></td>
-        <td><%= pass_category.price %></td>
-        <td><%= link_to 'Show', pass_category %></td>
-        <td><%= link_to 'Edit', edit_pass_category_path(pass_category) %></td>
-        <td><%= link_to 'Destroy', pass_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Price</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @pass_categories.each do |pass_category| %>
+        <tr>
+          <td><%= pass_category.name %></td>
+          <td><%= pass_category.price %></td>
+          <td><%= link_to 'Show', pass_category %></td>
+          <td><%= link_to 'Edit', edit_pass_category_path(pass_category) %></td>
+          <td><%= link_to 'Destroy', pass_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Pass Category', new_pass_category_path %>
+  <br>
+
+  <%= link_to 'New Pass Category', new_pass_category_path %>
+
+</div>
